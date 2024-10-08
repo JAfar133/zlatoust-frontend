@@ -1,0 +1,157 @@
+@import '@/app/constants';
+
+.main {
+  top: 0;
+  width: 100vw;
+  z-index: 1001;
+  position: fixed;
+}
+
+.topHeader {
+  background-color: $background-color;
+  box-shadow: 0 4px 6px $shadow-color;
+  height: 80px;
+  vertical-align: center;
+  display: flex;
+}
+.leftMenu {
+  display: flex;
+  gap: 44px;
+  .buttons {
+    display: flex;
+    vertical-align: center;
+    gap: 15px;
+    .icons {
+      color: $primary-color;
+      &:hover {
+        color: $link-hover-color;
+        scale: 1.1;
+      }
+    }
+  }
+}
+
+
+
+.bottomHeader {
+  background-color: #e7e7e7;
+  box-shadow: 0 4px 6px $shadow-color;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.nav {
+  width: 90%;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  padding: 3px 15px;
+  gap: 75px;
+  justify-content: center;
+
+  @media (max-width: 991px) {
+    justify-content: space-between;
+    gap: 15px;
+  }
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  &:hover {
+    scale: 1.01;
+  }
+}
+
+.navList {
+  display: flex;
+  gap: 1.5rem;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  padding: 15px 0;
+
+  @media (max-width: 991px) {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background-color: $background-color;
+    box-shadow: 0 4px 6px $shadow-color;
+    z-index: 10;
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none;
+  }
+
+  li {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.navListOpen {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.navItem {
+  list-style: none;
+}
+
+.navLink:hover {
+  scale: 1.01;
+  color: $link-hover-color;
+}
+
+.navLink {
+  color: $primary-color;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease-in-out;
+}
+
+.menuButton {
+  display: none;
+
+  @media (max-width: 991px) {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: $menu-button-color;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  .icon {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .icon-enter {
+    opacity: 0;
+    transform: rotate(90deg);
+  }
+
+  .icon-enter-active {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+
+  .icon-exit {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+
+  .icon-exit-active {
+    opacity: 0;
+    transform: rotate(-90deg);
+  }
+}

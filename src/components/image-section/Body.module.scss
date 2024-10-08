@@ -1,0 +1,69 @@
+@import '@/app/constants';
+
+.bodyBackground {
+  height: 100vh;
+  margin-top: 0;
+  width: 100%;
+  background-image: url($main-image-url);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+                    to top,
+                    rgba(0, 0, 0, 0.6),
+                    rgba(255, 255, 255, 0),
+                    rgba(255, 255, 255, 0),
+                    rgba(255, 255, 255, 0.5),
+    );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+  }
+
+  .searchContainer {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px 15px;
+    border-radius: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease; /* Переход для плавного увеличения */
+  }
+
+  .searchIcon {
+    margin-right: 10px;
+    color: $menu-button-color;
+  }
+
+  .searchInput {
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    width: 300px;
+    background-color: rgba(255, 255, 255, 0);
+
+    &::placeholder {
+      transition: color 0.2s ease;
+    }
+
+    &:focus::placeholder {
+      color: rgba(0, 0, 0, 0);
+    }
+  }
+
+  @media (min-width: 660px) {
+    .searchContainer:hover,
+    .searchContainer:focus-within {
+      transform: scale(1.2);
+    }
+  }
+}
