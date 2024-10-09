@@ -34,11 +34,12 @@
 
 
 .bottomHeader {
-  background-color: #e7e7e7;
+  background-color: #F5F3F1;
   box-shadow: 0 4px 6px $shadow-color;
-  height: 50px;
+  height: 35px;
   display: flex;
   justify-content: center;
+
 }
 
 .nav {
@@ -67,7 +68,7 @@
 
 .navList {
   display: flex;
-  gap: 1.5rem;
+  gap: 3rem;
   transition: transform 0.3s ease, opacity 0.3s ease;
   padding: 15px 0;
 
@@ -76,6 +77,7 @@
     flex-direction: column;
     position: absolute;
     top: 80px;
+    gap: 2rem;
     left: 0;
     width: 100%;
     background-color: $background-color;

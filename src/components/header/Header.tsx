@@ -7,11 +7,12 @@ import styles from './Header.module.scss';
 import { AlignJustify, AlignRight, Search, LogIn } from 'lucide-react';
 import { Lora } from 'next/font/google';
 import {cn} from "@/lib/utils";
+import {PageEnums} from "@/constants/constants";
 
 const loraItalic = Lora({
     subsets: ['latin'],
-    weight: '500',
-    style: 'italic'
+    weight: '600',
+    // style: 'italic',
 });
 export interface HeaderElement {
     name: string;
@@ -23,7 +24,22 @@ export interface HeaderProps {
     bottomHeaders: HeaderElement[];
 }
 
-const Header: React.FC<HeaderProps> = ({ topHeaders, bottomHeaders }) => {
+const topHeaders: HeaderElement[] = [
+    {name: 'Новости', path: PageEnums.NEWS},
+    {name: 'Обьявление', path: PageEnums.ANNOUNCEMENTS},
+    {name: 'Проповедь', path: PageEnums.SERMONS},
+    {name: 'Фотогалерея', path: '/gallery'},
+    {name: 'Контакты', path: '/contacts'},
+]
+
+const bottomHeaders: HeaderElement[] = [
+    {name: 'История прихода', path: '/history'},
+    {name: 'Расписание Богослужений', path: '/schedule'},
+    {name: 'Вопрос священнику', path: '/faq'},
+    {name: 'Воскресная школа', path: 'http://olgaschool.ortox.ru'},
+]
+
+const Header = () => {
     const [isMenuOpen, setMenuOpen] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
     const [mergedHeaders, setMergedHeaders] = useState<HeaderElement[]>([]);

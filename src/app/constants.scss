@@ -2,11 +2,17 @@
 $primary-color: #6A164F;
 $secondary-color: #A13B80;
 $background-color: #FEFEFE;
+$gold-color: #E4E7DA;
 $shadow-color: rgba(0, 0, 0, 0.1);
+
+@function rgba-primary-color($opacity) {
+  @return rgba(red($primary-color), green($primary-color), blue($primary-color), $opacity);
+}
 
 // Дополнительные цвета
 $link-hover-color: $secondary-color;
 $menu-button-color: $primary-color;
+$cross-color: #f1eaef;
 
 $logo-url: '/images/logo_pol.png';
-$main-image-url: '/images/main.jpg';
+$main-image-url: '/images/main_colored_darker.jpg';

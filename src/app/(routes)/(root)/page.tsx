@@ -1,28 +1,20 @@
 import React from 'react';
-import Header, {HeaderElement} from "@/components/header/Header";
 import ImageSection from "@/components/image-section/ImageSection";
-import PropovedSection from "@/components/body/propoved/PropovedSection";
+import Contacts from "@/components/body/contacts/Contacts";
+import Announcements from "@/components/body/sections/announcement/Announcement";
+import News from "@/components/body/sections/news/News";
+import Sermons from "@/components/body/sections/sermone/Sermons";
 
-const topHeader: HeaderElement[] = [
-    { name: 'Новости', path: '/news' },
-    { name: 'Проповедь', path: '/sermon' },
-    { name: 'Фотогалерея', path: '/gallery' },
-    { name: 'Контакты', path: '/contacts' },
-]
 
-const bottomHeader: HeaderElement[] = [
-    { name: 'История прихода', path: '/history' },
-    { name: 'Расписание Богослужений', path: '/schedule' },
-    { name: 'Вопрос священнику', path: '/faq' },
-    { name: 'Воскресная школа', path: 'http://olgaschool.ortox.ru' },
-]
 
 const Page = () => {
     return (
         <div>
-            <Header topHeaders={topHeader} bottomHeaders={bottomHeader}/>
-            <ImageSection />
-            <PropovedSection />
+            <ImageSection/>
+            <Contacts/>
+            <Announcements limit={3} pageLimit={3} allButton={true}/>
+            <News limit={3} pageLimit={3} allButton={true} bgColor={'#F5F3F1'}/>
+            <Sermons limit={3} pageLimit={3} allButton={true}/>
         </div>
     );
 };

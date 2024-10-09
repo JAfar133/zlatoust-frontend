@@ -1,0 +1,76 @@
+@import '@/app/constants';
+
+.section {
+  padding: 40px 40px 60px 40px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: $background-color;
+
+  .body {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+    gap: 10px;
+    .link {
+      text-decoration: underline;
+      width: 100%;
+      display: flex;
+      justify-content: end;
+      color: $link-hover-color;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+    .title {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative; /* Важно для размещения псевдоэлемента */
+      gap: 10px;
+      margin-bottom: 50px;
+      h2 {
+        font-size: 32px;
+        position: relative; /* Чтобы текст был над крестом */
+        z-index: 1;
+      }
+
+      h6 {
+        font-size: 18px;
+        color: $menu-button-color;
+        position: relative;
+        z-index: 1;
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        width: 20px;
+        height: 120px;
+        background-color: $cross-color;
+        transform: translate(-50%, -30%);
+        z-index: 0;
+
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        width: 80px;
+        height: 20px;
+        background-color: $cross-color;
+        transform: translate(-50%, -50%);
+        z-index: 0;
+      }
+    }
+  }
+}
